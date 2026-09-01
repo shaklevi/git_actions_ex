@@ -57,4 +57,4 @@ jobs:
         run: echo "First Name:${{ env.FIRST_NAME }}"
       - name: Print Last Name  - Local
       - name: Print Phone Number Secret
-        run: echo "Phone Number:${{ secrests.PHONE_NUMBER }}"
+        run: echo "Phone Number:${{ secrets.PHONE_NUMBER }}"
