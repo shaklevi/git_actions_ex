@@ -29,19 +29,19 @@ jobs:
         # Says  hello 
         - name: Say Hello
           run: echo "Hello"
-          
+
   job2:
     build:
-    runs-on:  ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-      - name: Prints all files in repository
-        run: |
-          for file in *; do
-            if [ -f "$file" ] ; then
-              cat $file
-            fi
-          done
-      - name: Runs test.shell
-        run: ./test.sh
+      runs-on:  ubuntu-latest 
+      steps:
+        - uses: actions/checkout@v4
+        - name: Prints all files in repository
+          run: |
+            for file in *; do
+              if [ -f "$file" ] ; then
+                cat $file
+              fi
+            done
+        - name: Runs test.shell
+          run: ./test.sh
   job3:
