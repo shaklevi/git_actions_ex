@@ -56,5 +56,6 @@ jobs:
       - name: Print First Name  - Global
         run: echo "First Name:${{ env.FIRST_NAME }}"
       - name: Print Last Name  - Local
+        run: echo "Last Name:${{ env.LAST_NAME }}"
       - name: Print Phone Number Secret
         run: echo "Phone Number:${{ secrets.PHONE_NUMBER }}"
