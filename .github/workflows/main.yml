@@ -30,7 +30,7 @@ jobs:
         - name: Say Hello
           run: echo "Hello"
         - name: Print version of Ubuntu
-          run: echo "The version of ${{ $ImageOS }} is ${{ $ImageVersion }}"
+          run: echo "The version of $ImageOS is $ImageVersion"
         - name: Print SHA of commit
           run: echo "${{ github.sha }}"
 
