@@ -3,12 +3,17 @@
 name: CI
 
 # Controls when the workflow will run
+env:
+  FIRST_NAME: Shahar
+
 on:
   # Triggers the workflow on push or pull request events but only for the "master" branch
   push:
     branches: [ "master" ]
 
   # Allows you to run this workflow manually from the Actions tab
+
+  
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -24,6 +29,10 @@ jobs:
         # Says  hello 
         - name: Say Hello
           run: echo "Hello"
+        - name: Print version of Ubuntu
+          run: echo "The version of ${{ ImageOS }}  is ${{ ImageVersion }}"
+        - name: Print SHA of commit
+          run: echo "${{ github.sha }}"
 
   job2:
     runs-on:  ubuntu-latest 
@@ -39,8 +48,14 @@ jobs:
       - name: Runs test.shell
         run: ./test.sh
   job3:
+    env:
+      LAST_NAME: Levi
     runs-on:  ubuntu-latest 
     steps:
       - uses: actions/checkout@v4
       - name: job3
         run: echo "This is job3." 
+      - name: Print First Name  - Global
+        run: echo "First Name: ${{ env.FIRST_NAME }}"
+      - name: Print Last Name  - Local
+        run: echo "Last Name: ${{ env.LAST_NAME }}"
