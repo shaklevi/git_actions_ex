@@ -30,9 +30,9 @@ jobs:
         - name: Say Hello
           run: echo "Hello"
         - name: Print version of Ubuntu
-          run: echo "The version of $ImageOS is $ImageVersion"
+          run: echo "The version of ${{ runner.os }} is $(lsb_release -d)"
         - name: Print SHA of commit
-          run: echo "${{ github.sha }}"
+          run: echo "SHA Number:${{ github.sha }}"
 
   job2:
     runs-on:  ubuntu-latest 
@@ -54,6 +54,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Print First Name  - Global
-        run: echo "First Name ${{ env.FIRST_NAME }}"
+        run: echo "First Name:${{ env.FIRST_NAME }}"
       - name: Print Last Name  - Local
-        run: echo "Last Name ${{ env.LAST_NAME }}"
+        run: echo "Last Name:${{ env.LAST_NAME }}"
